@@ -10,9 +10,6 @@ pip install scrapy
 ```
 pip install urllib3
 ```
-## challenge faced 
-some of you at this point might wonder why didn't i use the pipeline object offered by scrapy , i tried  and it didn't work out 
-and that's why i resorted to using  urllib3 as an alternative
 
 ## how it works
 1) first open up  settings.py  located in qwant_script folder and  set ***ROBOTSTXT_OBEY = False***
