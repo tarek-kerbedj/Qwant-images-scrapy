@@ -2,6 +2,7 @@ import scrapy
 from concurrent.futures import ThreadPoolExecutor
 from urllib3 import PoolManager
 import time
+import sys
 from os import makedirs
 from os.path import isdir,join
 https = PoolManager(num_pools=150)
@@ -10,7 +11,10 @@ class QwantSpider(scrapy.Spider):
 	#the name of the spider
 	name = 'images'	
 	#specify keywords to look up
-	query = input('choose something to look up ...\n').split(',')
+	#query = input('choose something to look up ...\n').split(',')
+	query=input('choose something to look up').split(',')
+	#query=[sys.argv[1]]
+	print(query)
 	start_urls=[]
 	#this loop generates Qwant queries from our keywords
 	qwant_url='https://www.qwant.com/?l=en&q='
@@ -20,6 +24,7 @@ class QwantSpider(scrapy.Spider):
 
 	# to generate folder names
 	folder_name_gen=(name for name in query)
+	print(folder_name_gen)
 	# to generate names of the files during the download , since i won't be using a for loop
 	# additional info: Qwant only provides 50 image results per query
 	gen=(i for i in range(len(start_urls)*50))
@@ -41,12 +46,12 @@ class QwantSpider(scrapy.Spider):
 					file.write(response_html.data)
 		
 		
-		#with ThreadPoolExecutor() as executor:
-		#	executor.map(download_image,raw_image_urls)
-		ls=[download_image(url) for url in raw_image_urls]
+		with ThreadPoolExecutor() as executor:
+			executor.map(download_image,raw_image_urls)
+		#ls=[download_image(url) for url in raw_image_urls]
 	
 	
-		yield 
+		yield
 		
 			
 		
