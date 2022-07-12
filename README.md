@@ -1,5 +1,6 @@
 # Qwant images scraper
-## this scrapy bot  allows you to download images from Qwant search engine by providing keywords 
+## this scrapy bot  allows you to download images from Qwant search engine by providing search keywords 
+## It now has a GUI to make the process easier
 
 ## requirments
 - Install scrapy
@@ -12,12 +13,11 @@ pip install urllib3
 ```
 
 ## how it works
-1) first open up  settings.py  located in qwant_script folder and  set ***ROBOTSTXT_OBEY = False***
-2) make sure you're on the root directory and fire up the command line
-3) run the command 
+1) make sure you're on the root directory and fire up the command line
+
+2) run the command 
 ```
-scrapy crawl images
-```
-4) specificy what you want to search and seperate the keywords by a ***comma*** eg: kanye west,donald trump
+python GUI.py
+``` 
 
  the script will create a folder for each keyword you specify **automatically** 
