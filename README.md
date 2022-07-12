@@ -13,7 +13,7 @@ pip install urllib3
 ```
 
 ## how it works
-1) make sure you're on the root directory and fire up the command line
+1) make sure you're on the qwant_scraper directory and fire up the command line
 
 2) run the command 
 ```
